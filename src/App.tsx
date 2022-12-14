@@ -1,5 +1,6 @@
 import styles from './App.module.scss';
-import {HashRouter as Router, Route} from 'react-router-dom';
+import {HashRouter as Router, Routes, Route} from 'react-router-dom';
+import LoginSignUpView from './components/LoginSignUpView/LoginSignUpView';
 // import Home from './components/Home/Home';
 // import Login from './components/Login/Login';
 // import Signup from './components/Signup/Signup';
@@ -20,6 +21,9 @@ const App = () => {
       <section className={styles.Header}>
         <h1 className={styles.Title}>BGM Bank</h1>
       </section>
+      <Routes>
+        <Route path='*' element={<LoginSignUpView />} />
+      </Routes>
     </Router>
     // <Router>
     //   <section class="heading">
