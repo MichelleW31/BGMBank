@@ -1,26 +1,47 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import styles from './App.module.scss';
+import {HashRouter as Router, Route} from 'react-router-dom';
+// import Home from './components/Home/Home';
+// import Login from './components/Login/Login';
+// import Signup from './components/Signup/Signup';
 
-function App() {
+const App = () => {
+  // state = {
+  //   username: '',
+  // };
+
+  // updateUsername = (name: string) => {
+  //   this.setState({
+  //     username: name,
+  //   });
+  // };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <section className={styles.Header}>
+        <h1 className={styles.Title}>BGM Bank</h1>
+      </section>
+    </Router>
+    // <Router>
+    //   <section class="heading">
+    //     <h1 class="bgm_title">BGM Bank</h1>
+    //   </section>
+    //   <Route
+    //     path="/"
+    //     exact
+    //     render={() => <Login updateUsername={this.updateUsername} />}
+    //   />
+    //   <Route
+    //     path="/signup"
+    //     exact
+    //     render={() => <Signup updateUsername={this.updateUsername} />}
+    //   />
+    //   <Route
+    //     path="/home"
+    //     exact
+    //     render={() => <Home username={this.state.username} />}
+    //   />
+    // </Router>
   );
-}
+};
 
 export default App;
