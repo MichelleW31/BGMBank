@@ -1,8 +1,9 @@
 import Login from 'components/Login/Login';
 import Signup from 'components/Signup/Signup';
+import {ReactElement} from 'react';
 import {Routes, Route} from 'react-router-dom';
 
-const LoginSignUpView = () => {
+const LoginSignUpView = (): ReactElement => {
   return (
     <>
       <Routes>

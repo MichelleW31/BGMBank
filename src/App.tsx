@@ -1,11 +1,12 @@
 import styles from './App.module.scss';
 import {HashRouter as Router, Routes, Route} from 'react-router-dom';
 import LoginSignUpView from './components/LoginSignUpView/LoginSignUpView';
+import {ReactElement} from 'react';
 // import Home from './components/Home/Home';
 // import Login from './components/Login/Login';
 // import Signup from './components/Signup/Signup';
 
-const App = () => {
+const App = (): ReactElement => {
   // state = {
   //   username: '',
   // };

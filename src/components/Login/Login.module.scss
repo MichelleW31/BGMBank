@@ -3,17 +3,20 @@
   border-radius: 5px;
   box-shadow: 0px 16px 30px -5px rgba(0, 0, 0, 1);
   display: flex;
+  height: 415px;
   margin: 200px auto;
+  max-height: 415px;
   text-align: center;
   width: 50%;
 
   .LoginForm {
+    padding: 60px 0 30px;
     width: 50%;
 
     .FormHeaderCopy {
       color: #703265;
       font-size: 28px;
-      padding: 80px 0 20px;
+      padding-bottom: 20px;
     }
 
     input {
@@ -26,7 +29,7 @@
     }
 
     input::placeholder {
-      color: #cfcfcf;
+      color: #b2b2b2;
       font-size: 14px;
     }
 
@@ -34,13 +37,6 @@
       color: red;
       font-size: 14px;
       margin-bottom: 10px;
-    }
-
-    .ForgotPasswordCopy {
-      color: #531c49;
-      font-size: 13px;
-      font-weight: 400;
-      margin: 5px 0;
     }
 
     .LoginButton {
@@ -55,6 +51,25 @@
 
       &:hover {
         cursor: pointer;
+      }
+    }
+
+    .ForgotPasswordCopy {
+      color: #531c49;
+      font-size: 13px;
+      font-weight: 400;
+      margin: 5px 0;
+    }
+
+    .CreateAccountCopy {
+      font-size: 13px;
+      font-weight: 400;
+      margin-top: 18px;
+
+      a {
+        display: inline;
+        padding-left: 5px;
+        text-decoration: none;
       }
     }
   }
