@@ -20,4 +20,8 @@ module.exports = {
     project: ['./tsconfig.json'],
   },
   plugins: ['react', 'jest', 'testing-library'],
+  rules: {
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': 'warn',
+  },
 };

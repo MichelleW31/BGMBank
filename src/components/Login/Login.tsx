@@ -12,6 +12,7 @@ const Login = (): ReactElement => {
     errorStatus: false,
     errorMessage: '',
   });
+  //   const [token, setToken] = useState<string>();
 
   const {username, password} = user;
   const {errorStatus, errorMessage} = errors;
@@ -25,6 +26,13 @@ const Login = (): ReactElement => {
     } else {
       setErrors({...errors, errorStatus: false, errorMessage: ''});
     }
+
+    // authentication error
+    checkAuthentication();
+  };
+
+  const checkAuthentication = (): void => {
+    console.log('authenticating');
   };
 
   const login = (): void => {

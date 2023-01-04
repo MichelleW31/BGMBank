@@ -20,11 +20,36 @@
     padding-bottom: 30px;
   }
 
+  .Input {
+    margin-bottom: 15px;
+
+    .InputArrowContainer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .Valid,
+    .Invalid {
+      margin-left: 3px;
+      position: absolute;
+      right: 70px;
+    }
+
+    .Valid {
+      color: limegreen;
+    }
+
+    .Invalid {
+      color: red;
+    }
+  }
+
   input {
     background: transparent;
     border: 1px solid #cfcfcf;
     border-radius: 3px;
-    margin-bottom: 15px;
     padding: 10px 10px;
     width: 70%;
   }
@@ -32,6 +57,29 @@
   input::placeholder {
     color: #b2b2b2;
     font-size: 14px;
+  }
+
+  .Instructions {
+    background: #703265;
+    border-radius: 0.4rem;
+    bottom: -10px;
+    color: #fff;
+    font-size: 0.78rem;
+    margin: 0 auto;
+    opacity: 95%;
+    padding: 0.25rem;
+    position: relative;
+    text-align: left;
+    width: 70%;
+  }
+
+  .Instructions > svg {
+    margin-right: 0.25rem;
+  }
+
+  .Offscreen {
+    left: -9999px;
+    position: absolute;
   }
 
   .Error {
