@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-misused-promises */
 import styles from './Signup.module.scss';
 import {ReactElement, useRef, useState, useEffect} from 'react';
 import Image from 'components/Image/Image';
@@ -6,9 +7,8 @@ import {faCheck, faTimes, faInfoCircle} from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 const Signup = (): ReactElement => {
-  const [user, setUser] = useState<{username: string; email: string; password: string; passwordMatch: string}>({
+  const [user, setUser] = useState<{username: string; password: string; passwordMatch: string}>({
     username: '',
-    email: '',
     password: '',
     passwordMatch: '',
   });
@@ -28,22 +28,18 @@ const Signup = (): ReactElement => {
     errorMessage: '',
   });
 
-  const {username, email, password, passwordMatch} = user;
+  const {username, password, passwordMatch} = user;
   const {errorStatus, errorMessage} = errors;
 
   const errorCheck = (): void => {
     const message: string = 'Please enter a valid username and password.';
 
     // empty credentials error
-    if (username === '' || password === '' || email === '' || passwordMatch === '') {
+    if (username === '' || password === '' || passwordMatch === '') {
       setErrors({...errors, errorStatus: true, errorMessage: message});
     } else {
       setErrors({...errors, errorStatus: false, errorMessage: ''});
     }
-  };
-
-  const signUp = (): void => {
-    errorCheck();
   };
 
   const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/;
@@ -71,12 +67,23 @@ const Signup = (): ReactElement => {
     setErrors({...errors, errorStatus: false, errorMessage: ''});
   }, [username, password, passwordMatch]);
 
+  const signUp = async (e: React.FormEvent): Promise<void> => {
+    e.preventDefault();
+    const v1 = USER_REGEX.test(username);
+    const v2 = PASSWORD_REGEX.test(password);
+    if (!v1 || !v2) {
+      setErrors({...errors, errorStatus: true, errorMessage: 'Invalid Entry'});
+      return;
+    }
+    errorCheck();
+  };
+
   return (
     <section className={styles.SignupContainer}>
       <Image />
       <section className={styles.SignupForm}>
         <h2 className={styles.FormHeaderCopy}>Signup</h2>
-        <form>
+        <form onSubmit={signUp}>
           <label hidden htmlFor='username'>
             Username:
           </label>
@@ -115,13 +122,6 @@ const Signup = (): ReactElement => {
               <br /> Must begin with a letter. <br /> Letters, number, underscores, hyphens allowed.
             </p>
           </section>
-
-          {/* <input
-            type='text'
-            placeholder='Email Address'
-            value={email}
-            onChange={(e) => setUser({...user, password: e.target.value})}
-          /> */}
 
           <label hidden htmlFor='password'>
             Password:
@@ -192,17 +192,20 @@ const Signup = (): ReactElement => {
               Must match password entered.
             </p>
           </section>
+
+          <button className={styles.SignupButton} disabled={!validMatch}>
+            Signup
+          </button>
         </form>
+
         {errorStatus && (
           <p ref={errRef} aria-live='assertive' className={styles.Error}>
             {errorMessage}
           </p>
         )}
-        <button className={styles.SignupButton} onClick={() => signUp()}>
-          Signup
-        </button>
+
         <section className={styles.ExistingAccountCopy}>
-          <p>Already have an account</p>
+          <p>Already have an account?</p>
           <p>
             <NavLink to='/'>Login</NavLink>
           </p>

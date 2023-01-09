@@ -32,9 +32,9 @@
 
     .Valid,
     .Invalid {
-      margin-left: 3px;
+      // margin-left: 3px;
       position: absolute;
-      right: 70px;
+      right: 18%;
     }
 
     .Valid {
@@ -91,7 +91,7 @@
   .SignupButton {
     background: linear-gradient(to bottom, #1e5799 0%, #b44e8d 0%, #703265 100%);
     border: none;
-    border-radius: 2px;
+    border-radius: 5px;
     color: white;
     font-size: 18px;
     margin: 25px 0 8px;
